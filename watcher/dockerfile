@@ -1,0 +1,17 @@
+# Use lightweight Alpine Python image
+FROM python:3.11-alpine
+
+# Set working directory
+WORKDIR /opt
+
+# Copy watcher code
+COPY watcher.py /opt/watcher.py
+COPY requirements.txt /opt/requirements.txt
+
+# Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Run watcher
+CMD ["python", "/opt/watcher.py"]
+
+
